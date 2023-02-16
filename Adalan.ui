@@ -225,9 +225,9 @@
     <widget class="QLabel" name="lbl_timer">
      <property name="geometry">
       <rect>
-       <x>630</x>
+       <x>620</x>
        <y>10</y>
-       <width>111</width>
+       <width>91</width>
        <height>31</height>
       </rect>
      </property>
@@ -241,7 +241,32 @@
       <string notr="true">border:0px</string>
      </property>
      <property name="text">
-      <string>0 s</string>
+      <string>0 </string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lbl_timer_2">
+     <property name="geometry">
+      <rect>
+       <x>710</x>
+       <y>10</y>
+       <width>31</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>20</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border:0px</string>
+     </property>
+     <property name="text">
+      <string>s</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -1058,8 +1083,38 @@ border-bottom-color : blue
      <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuHow_to">
+    <property name="title">
+     <string>How to</string>
+    </property>
+    <addaction name="menu_howto"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="menu_about"/>
+    <addaction name="menu_req"/>
+   </widget>
+   <addaction name="menuHow_to"/>
+   <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="menu_howto">
+   <property name="text">
+    <string>How to use the app</string>
+   </property>
+  </action>
+  <action name="menu_about">
+   <property name="text">
+    <string>About Adalan</string>
+   </property>
+  </action>
+  <action name="menu_req">
+   <property name="text">
+    <string>Requirements</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

@@ -422,8 +422,8 @@ class ShowResults(QDialog):
 
         self.response_time_graph.setTitle(title="Response Time")
         self.response_time_graph.plot(ques_index, time_list)
-        ques_index = []
-        time_list = []
+        self.parent.answer_response_time = []
+        self.parent.question_index = []
 
 
 

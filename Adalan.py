@@ -5,8 +5,6 @@ from PyQt6.QtCore import QTimer
 import pyqtgraph as pg
 import random
 import os
-
-basedir = os.path.dirname(__file__)
 # pyinstaller --windowed --icon=adalan_icon.ico --add-data="Adalan.ui;."  --add-data=".;."  Adalan.py
 # pyinstaller --windowed -n "Adalan" --icon=adalan_icon.ico --add-data="Adalan.ui;."  --add-data=".;."  Adalan.py
 # pyinstaller --windowed --icon=adalan_icon.ico --add-data="*.ui;."  --add-data="gifs/;gifs/"  Adalan.py
@@ -15,7 +13,6 @@ basedir = os.path.dirname(__file__)
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        #app.setWindowIcon(QtGui.QIcon(os.path.join(basedir, 'hand.ico')))
         loadUi("Adalan.ui", self)
         self.setMaximumWidth(self.width())
         self.setMaximumHeight(self.height())
@@ -99,13 +96,18 @@ class MainWindow(QMainWindow):
         self.update_gifs()
 
     def menu_requirements(self):
+        """
+        Requirements menu
+        """
         message = "Windows 10 OS\n" \
                   "Python 3.8+\n" \
                   "and a smiling face :)"
         QMessageBox.about(self, "Requirements", message)
 
-
     def how_to(self):
+        """
+        how to dialog
+        """
         message = "To use adalan follow the steps\n\n" \
                   "1. Set the numbers range to fix the min and max range.\n" \
                   "This is used to randomly pick numbers between the min max value. The default value is 50\n" \
@@ -119,6 +121,9 @@ class MainWindow(QMainWindow):
         QMessageBox.about(self, "Using Adalan Application", message)
 
     def about_adalan(self):
+        """
+        Aoubt adalan dialog
+        """
         message = "Adalan is an application developed by Prabhu Kalaimani.\n" \
                   "It is a fun application to learn mathematics. \nIt helps childrens to" \
                   "shrapen their basic mathematics skills. \nThis application is tested by Shraven Prabu\n" \
@@ -128,10 +133,16 @@ class MainWindow(QMainWindow):
         QMessageBox.about(self, "About Adalan", message)
 
     def update_gifs(self):
+        """
+        Update gifs
+        """
         self.passed_gif = ([file for file in os.listdir('gifs/correct_gif') if file.endswith('.gif')])
         self.failed_gif = ([file for file in os.listdir('gifs/wrong_gif') if file.endswith('.gif')])
 
     def display_image(self, status):
+        """
+        Displaying images
+        """
         if status:
             gif_file = "gifs/correct_gif/" + random.choice(self.passed_gif)
             self.movie = QMovie(gif_file)
@@ -144,24 +155,38 @@ class MainWindow(QMainWindow):
         self.movie.start()
 
     def stop_image(self):
+        """
+        Method which stops the image
+        """
         self.lbl_disp.clear()
 
     def set_dial_text(self):
+        """
+        Handles seconds dial
+        """
         wait_time = self.dial_delay.value()
         self.lbl_delay.setText(str( wait_time) + " seconds")
 
     def op_state(self, chkbox):
+        """
+        Handles operator check box
+        """
         op_name = chkbox.text()
         if op_name not in self.operator_list and chkbox.isChecked():
             self.operator_list.append(op_name)
         if op_name in self.operator_list and not chkbox.isChecked():
             self.operator_list.remove(op_name)
-        # print("List = ", self.operator_list)
 
     def set_test_status_btn(self):
+        """
+        Starts the test
+        """
         self.start_testing()
 
     def update_total_questions(self, val):
+        """
+        Total questions
+        """
         self.total_questions = val
         self.lbl_ques_cnt.setText(str(val))
 
@@ -185,6 +210,9 @@ class MainWindow(QMainWindow):
         return random_num
 
     def show_controls(self):
+        """
+        Displays controls
+        """
         self.inp_1.show()
         self.inp_2.show()
         self.lbl_equal.show()
@@ -193,6 +221,9 @@ class MainWindow(QMainWindow):
         self.lbl_operator.show()
 
     def hide_controls(self):
+        """
+        Hides controls
+        """
         self.inp_1.hide()
         self.inp_2.hide()
         self.lbl_equal.hide()
@@ -201,6 +232,9 @@ class MainWindow(QMainWindow):
         self.lbl_operator.hide()
 
     def start_testing(self):
+        """
+        Method to start the test
+        """
         if len(self.operator_list) == 0:
             # print("Throw error to select at least one operator")
             QMessageBox.critical(self, "No operator is chosen !!!", "Chose at least one operator")
@@ -221,7 +255,6 @@ class MainWindow(QMainWindow):
             operator = self.operator_dict[random.choice(self.operator_list)]
 
             # Handle divide by division
-
             if operator == "/":
                 if x == 0 and y == 0:
                     x = 1
@@ -274,9 +307,6 @@ class MainWindow(QMainWindow):
         time = self.dial_delay.value() - int(self.lbl_timer.text())
         self.answer_response_time.append(time)
         self.question_index.append(tmp_cnt)
-        # print("question ", tmp_cnt)
-        # print("response time ", str(time))
-
 
         # First clear x and y
         self.inp_1.clear()
@@ -430,7 +460,6 @@ class ShowResults(QDialog):
         self.response_time_graph.plot(ques_index, time_list)
         self.parent.answer_response_time = []
         self.parent.question_index = []
-
 
 
 app = QApplication([])

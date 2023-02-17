@@ -12,8 +12,6 @@ from PyQt6.QtCore import QTimer
 import pyqtgraph as pg
 import random
 import os
-# pyinstaller --windowed --icon=adalan_icon.ico --add-data="Adalan.ui;."  --add-data=".;."  Adalan.py
-# pyinstaller --windowed -n "Adalan" --icon=adalan_icon.ico --add-data="Adalan.ui;."  --add-data=".;."  Adalan.py
 # pyinstaller --windowed --icon=adalan_icon.ico --add-data="*.ui;."  --add-data="gifs/;gifs/"  Adalan.py
 
 

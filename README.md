@@ -1,7 +1,7 @@
 # Adalan
-Adlan is a freeware to testing basic mathematical skills. 
-You need windows to execute the application. This application is 
-developed and tested on windows platform.
+Adlan is a freeware to test basic mathematical skills. 
+This application is developed and tested on windows platform.
+You need windows to execute the application. 
 
 ## Installing Adalan
 1. Download Adalan_installation.zip file to the folder you like

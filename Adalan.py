@@ -6,12 +6,17 @@ import pyqtgraph as pg
 import random
 import os
 
+basedir = os.path.dirname(__file__)
+# pyinstaller --windowed --icon=adalan_icon.ico --add-data="Adalan.ui;."  --add-data=".;."  Adalan.py
+# pyinstaller --windowed -n "Adalan" --icon=adalan_icon.ico --add-data="Adalan.ui;."  --add-data=".;."  Adalan.py
+# pyinstaller --windowed --icon=adalan_icon.ico --add-data="*.ui;."  --add-data="gifs/;gifs/"  Adalan.py
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
+        #app.setWindowIcon(QtGui.QIcon(os.path.join(basedir, 'hand.ico')))
         loadUi("Adalan.ui", self)
-        #self.setFixedSize(281, 251)
         self.setMaximumWidth(self.width())
         self.setMaximumHeight(self.height())
         # Global variables
@@ -135,6 +140,7 @@ class MainWindow(QMainWindow):
             self.movie = QMovie(gif_file)
 
         self.lbl_disp.setMovie(self.movie)
+        self.lbl_disp.setScaledContents(True)
         self.movie.start()
 
     def stop_image(self):

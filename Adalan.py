@@ -1,3 +1,10 @@
+#########################################################################
+#
+# Designed and developed by Prabhu Kalaimani
+# prabhu_tigers@yahoo.com
+#
+##########################################################################
+
 from PyQt6.QtWidgets import QApplication, QMainWindow, QDialog, QMessageBox
 from PyQt6.QtGui import QIntValidator, QDoubleValidator, QMovie, QIcon, QPixmap
 from PyQt6.uic import loadUi

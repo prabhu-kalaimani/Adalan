@@ -82,8 +82,6 @@ class MainWindow(QMainWindow):
         self.brn_show_result.hide()
 
         # Input number validation
-        #self.inp_1.setValidator(QIntValidator(0, 100000))
-        #self.inp_2.setValidator(QIntValidator(0, 100000))
         self.inp_result.setValidator(QDoubleValidator(-1000000000, 1000000000, 2))
 
         # Set the slider value
@@ -251,7 +249,7 @@ class MainWindow(QMainWindow):
         Displays controls
         """
         if vertical_control:
-            print("Vertical ui is on")
+            # print("Vertical ui is on")
             self.inp_1.hide()
             self.inp_2.hide()
             self.inp_power_y.hide()
@@ -276,7 +274,7 @@ class MainWindow(QMainWindow):
                 self.lbl_inp2.show()
                 self.inp_power_y1.hide()
         else:
-            print("Vertical ui is off")
+            # print("Vertical ui is off")
             if operator == "x2" or operator == "x3":
                 self.inp_1.hide()
                 self.lbl_operator.hide()
@@ -312,7 +310,7 @@ class MainWindow(QMainWindow):
         """
         Hides controls
         """
-        print("Vertical ui is on")
+        # print("Vertical ui is on")
         self.inp_1.hide()
         self.inp_2.hide()
         self.lbl_operator.hide()
@@ -382,13 +380,13 @@ class MainWindow(QMainWindow):
                 x = res
 
             if operator == "x2":
-                print("Executing square")
+                # print("Executing square")
                 self.inp_1.setText(str(x))
                 self.inp_2.setText(str(y))
                 self.lbl_operator.setText("x2")
                 self.inp_power_y.setText("2")
             elif operator == "x3":
-                print("Executing cube")
+                # print("Executing cube")
                 self.inp_1.setText(str(x))
                 self.inp_2.setText(str(y))
                 self.lbl_operator.setText("x3")

@@ -12,6 +12,7 @@ from PyQt6.QtCore import QTimer
 import pyqtgraph as pg
 import random
 import os
+import math
 # pyinstaller --windowed --icon=adalan_icon.ico --add-data="*.ui;."  --add-data="gifs/;gifs/"  Adalan.py
 
 
@@ -21,6 +22,7 @@ class MainWindow(QMainWindow):
         loadUi("Adalan.ui", self)
         self.setMaximumWidth(self.width())
         self.setMaximumHeight(self.height())
+        self.adalan_version = "2.0"
         # Global variables
         self.slider_max = 100
         self.slider_min = 0
@@ -29,7 +31,8 @@ class MainWindow(QMainWindow):
         self.count = 0
         self.total_questions = 10
         self.operator_list = []
-        self.operator_dict = {"Addition": "+", "Subtraction": "-", "Multiplication": "X", "Division": "/"}
+        self.operator_dict = {"Addition": "+", "Subtraction": "-", "Multiplication": "X",
+                              "Division": "/", "Square":"x2", "Cube":"x3", "SquareRoot": "sqrt"}
         self.total_correct = 0
         self.total_wrong = 0
         self.movie = None
@@ -37,6 +40,14 @@ class MainWindow(QMainWindow):
         self.failed_gif = None
         self.answer_response_time = []
         self.question_index = []
+        # To display vertically
+        self.vertical_display = False
+
+        # vertical display
+        self.vertical_display = False
+        self.lbl_inp1.hide()
+        self.lbl_inp2.hide()
+        self.lbl_operator_1.hide()
 
         # Icon
         self.setWindowIcon(QIcon('adalan_icon.png'))
@@ -57,15 +68,23 @@ class MainWindow(QMainWindow):
         self.chk_sub.stateChanged.connect(lambda : self.op_state(self.chk_sub))
         self.chk_mul.stateChanged.connect(lambda : self.op_state(self.chk_mul))
         self.chk_div.stateChanged.connect(lambda : self.op_state(self.chk_div))
+        self.chk_square.stateChanged.connect(lambda : self.op_state(self.chk_square))
+        self.chk_cbrt.stateChanged.connect(lambda : self.op_state(self.chk_cbrt))
+        self.chk_sqrt.stateChanged.connect(lambda : self.op_state(self.chk_sqrt))
+
+        # Vertical display button
+        self.chk_vertical.stateChanged.connect(lambda : self.vertical_change(self.chk_vertical))
 
         # hide inputs
+        self.inp_power_x.hide()
+        self.inp_power_y.hide()
         self.hide_controls()
         self.brn_show_result.hide()
 
         # Input number validation
-        self.inp_1.setValidator(QIntValidator(0, 100000))
-        self.inp_2.setValidator(QIntValidator(0, 100000))
-        self.inp_result.setValidator(QDoubleValidator(-1000000000, 1000000000, 0))
+        #self.inp_1.setValidator(QIntValidator(0, 100000))
+        #self.inp_2.setValidator(QIntValidator(0, 100000))
+        self.inp_result.setValidator(QDoubleValidator(-1000000000, 1000000000, 2))
 
         # Set the slider value
         self.int_range.setMinimum(self.slider_min)
@@ -96,9 +115,15 @@ class MainWindow(QMainWindow):
         self.menu_about.triggered.connect(self.about_adalan)
         self.menu_req.triggered.connect(self.menu_requirements)
 
+        self.inp_1.textChanged.connect(self.lbl_inp1.setText)
+        self.inp_2.textChanged.connect(self.lbl_inp2.setText)
+        self.lbl_operator.textChanged.connect(self.lbl_operator_1.setText)
+
         # Default options for ui
         self.disable_user_input()  # disable user inputs
         self.update_gifs()
+
+
 
     def menu_requirements(self):
         """
@@ -113,7 +138,7 @@ class MainWindow(QMainWindow):
         """
         how to dialog
         """
-        message = "To use adalan follow the steps\n\n" \
+        message = f"To use Adalan {self.adalan_version} follow the steps\n\n" \
                   "1. Set the numbers range to fix the min and max range.\n" \
                   "This is used to randomly pick numbers between the min max value. The default value is 50\n" \
                   "2. Set the total questions for the test. Default value is 10 and you can choose up to 100 questions\n" \
@@ -123,19 +148,19 @@ class MainWindow(QMainWindow):
                   "time reaches 0s.The answer is validated and you know the results with the funny jif :) \n\n" \
                   "Tip: You can use the enter key to validate the answer or after 0 seconds it will auto eveluate your results." \
                   "\n\n isn't it FUNNY ......"
-        QMessageBox.about(self, "Using Adalan Application", message)
+        QMessageBox.about(self, f"Using Adalan Application {self.adalan_version}", message)
 
     def about_adalan(self):
         """
         Aoubt adalan dialog
         """
-        message = "Adalan is an application developed by Prabhu Kalaimani.\n" \
+        message = f"Adalan {self.adalan_version} is an application developed by Prabhu Kalaimani.\n" \
                   "It is a fun application to learn mathematics. \nIt helps childrens to" \
                   "shrapen their basic mathematics skills. \nThis application is tested by Shraven Prabu\n" \
                   "This application is built and tested on windows platform.\n\nFor any queries improvements please e-mail\n" \
                   "prabhu_tigers@yahoo.com"
 
-        QMessageBox.about(self, "About Adalan", message)
+        QMessageBox.about(self, f"About Adalan {self.adalan_version}", message)
 
     def update_gifs(self):
         """
@@ -171,6 +196,26 @@ class MainWindow(QMainWindow):
         """
         wait_time = self.dial_delay.value()
         self.lbl_delay.setText(str( wait_time) + " seconds")
+
+    def vertical_change(self, chkbox):
+        if chkbox.isChecked():
+            self.vertical_display = True
+            self.lbl_inp1.show()
+            self.lbl_inp2.show()
+            self.lbl_operator_1.show()
+            # hide
+            self.inp_1.hide()
+            self.inp_2.hide()
+            self.lbl_operator.hide()
+        else:
+            self.vertical_display = False
+            self.lbl_inp1.hide()
+            self.lbl_inp2.hide()
+            self.lbl_operator_1.hide()
+            # show
+            self.inp_1.show()
+            self.inp_2.show()
+            self.lbl_operator.show()
 
     def op_state(self, chkbox):
         """
@@ -214,68 +259,43 @@ class MainWindow(QMainWindow):
         random_num = random.randint(start, end)
         return random_num
 
-    def show_controls(self):
+    def show_controls(self, operator=None):
         """
         Displays controls
         """
-        self.inp_1.show()
-        self.inp_2.show()
+        if operator == "x2" or operator == "x3":
+            self.inp_power_x.show()
+            self.inp_power_y.show()
+        elif operator == "sqrt":
+            self.inp_power_x.show()
+        elif self.vertical_display == False:
+            self.inp_1.show()
+            self.inp_2.show()
+            self.lbl_operator.show()
+
+        # Generic control to show
         self.lbl_equal.show()
         self.inp_result.show()
         self.lbl_ans_hint.show()
-        self.lbl_operator.show()
 
-    def hide_controls(self):
+    def hide_controls(self, operator=None):
         """
         Hides controls
         """
-        self.inp_1.hide()
-        self.inp_2.hide()
+        if operator == "x2" or operator == "x3":
+            self.inp_power_x.hide()
+            self.inp_power_y.hide()
+        elif operator == "sqrt":
+            self.inp_power_x.hide()
+        else:
+            self.inp_1.hide()
+            self.inp_2.hide()
+            self.lbl_operator.hide()
+
+        # Generic control to hide
         self.lbl_equal.hide()
         self.inp_result.hide()
         self.lbl_ans_hint.hide()
-        self.lbl_operator.hide()
-
-    def start_testing(self):
-        """
-        Method to start the test
-        """
-        if len(self.operator_list) == 0:
-            # print("Throw error to select at least one operator")
-            QMessageBox.critical(self, "No operator is chosen !!!", "Chose at least one operator")
-        else:
-            self.lbl_ans_status.hide()
-            self.lock_ui()
-            self.show_controls()
-            self.timer.start(1000)
-            self.stop_image()
-            self.enable_user_input()
-            self.count = self.dial_delay.value()
-            self.lbl_timer.setText(str(self.count))
-            self.start = True
-            # print("Test in progress...")
-
-            x = self.get_random(self.slider_min, self.slider_position)
-            y = self.get_random(self.slider_min, self.slider_position)
-            operator = self.operator_dict[random.choice(self.operator_list)]
-
-            # Handle divide by division
-            if operator == "/":
-                if x == 0 and y == 0:
-                    x = 1
-                    y = 1
-                res = 1
-                if y == 0:
-                    tmp_val = x
-                    x = y
-                    y = tmp_val
-                res = x * y
-                x = res
-
-            # print(x, operator, y)
-            self.inp_1.setText(str(x))
-            self.lbl_operator.setText(operator)
-            self.inp_2.setText(str(y))
 
     def disable_user_input(self):
         self.btn_start.setEnabled(True)
@@ -291,16 +311,78 @@ class MainWindow(QMainWindow):
         self.btn_start.setText(" ")
         self.inp_result.setFocus()
 
+    def start_testing(self):
+        """
+        Method to start the test
+        """
+        if len(self.operator_list) == 0:
+            # print("Throw error to select at least one operator")
+            QMessageBox.critical(self, "No operator is chosen !!!", "Chose at least one operator")
+        else:
+            self.lbl_ans_status.hide()
+            self.chk_vertical.setEnabled(False)
+            self.lock_ui()
+            # self.show_controls()
+            self.timer.start(1000)
+            self.stop_image()
+            self.enable_user_input()
+            self.count = self.dial_delay.value()
+            self.lbl_timer.setText(str(self.count))
+            self.start = True
+            # print("Test in progress...")
+
+            # Generate x and y parameters
+            x = self.get_random(self.slider_min, self.slider_position)
+            y = self.get_random(self.slider_min, self.slider_position)
+            operator = self.operator_dict[random.choice(self.operator_list)]
+
+            # Based on the operator show and hide controls
+            self.show_controls(operator=operator)
+
+            # Handle divide by division
+            if operator == "/":
+                if x == 0 and y == 0:
+                    x = 1
+                    y = 1
+                res = 1
+                if y == 0:
+                    tmp_val = x
+                    x = y
+                    y = tmp_val
+                res = x * y
+                x = res
+
+            if operator == "x2":
+                print("Executing square")
+                self.lbl_operator.setText(operator)
+                self.inp_power_x.setText(str(x))
+                self.inp_power_y.setText("2")
+                # # Disable the vertical view
+                # if self.chk_vertical.isChecked():
+            if operator == "x3":
+                self.lbl_operator.setText(operator)
+                print("Executing cube")
+                self.inp_power_x.setText(str(x))
+                self.inp_power_y.setText("3")
+            if operator == "sqrt":
+                self.lbl_operator.setText(operator)
+                self.inp_power_x.setText(f"√{x}")
+                self.inp_power_y.setText(str(x))
+            else:
+                self.inp_1.setText(str(x))
+                self.lbl_operator.setText(operator)
+                self.inp_2.setText(str(y))
+
+
     def validate_result(self):
-
-        x = int(self.inp_1.text())
-        y = int(self.inp_2.text())
         operator = self.lbl_operator.text()
-
         if self.inp_result.text() == "":
             result = 0
         else:
-            result = int(self.inp_result.text())
+            if operator == "sqrt":
+                result = float(self.inp_result.text())
+            else:
+                result = int(self.inp_result.text())
 
         # update the status
         tmp_cnt = self.inp_total_question.value() - self.total_questions + 1
@@ -313,11 +395,22 @@ class MainWindow(QMainWindow):
         self.answer_response_time.append(time)
         self.question_index.append(tmp_cnt)
 
-        # First clear x and y
-        self.inp_1.clear()
-        self.inp_2.clear()
-        self.inp_result.clear()
-        self.lbl_operator.clear()
+
+        if operator == "x2" or operator == "x3":
+            x = int(self.inp_power_x.text())
+            y = int(self.inp_power_y.text())
+        elif operator == "sqrt":
+            x = int(self.inp_power_y.text())
+            y = int(self.inp_power_y.text())
+        else:
+            x = int(self.inp_1.text())
+            y = int(self.inp_2.text())
+
+            # First clear x and y
+            self.inp_1.clear()
+            self.inp_2.clear()
+            self.inp_result.clear()
+            self.lbl_operator.clear()
 
         result_status = False
         correct_ans = 0
@@ -334,6 +427,19 @@ class MainWindow(QMainWindow):
         elif operator == "/":
             correct_ans = round(x / y)
             result_status = (result == correct_ans)
+        elif operator == "x2":
+            correct_ans = x * x
+            result_status = (result == correct_ans)
+        elif operator == "x3":
+            correct_ans = x * x * x
+            result_status = (result == correct_ans)
+        elif operator == "sqrt":
+            correct_ans = round(math.sqrt(y), 2)
+            result_status = (result == correct_ans)
+
+
+        # Enable the vertical selection
+        self.chk_vertical.setEnabled(True)
 
         # print(f"{result_status} {x} {operator} {y} = {result}")
         if result_status:
@@ -343,7 +449,18 @@ class MainWindow(QMainWindow):
             self.lbl_ans_status.setText("Correct Answer !!!")
         else:
             self.total_wrong += 1
-            self.txt_errors.appendPlainText(f"Q-{self.total_questions}: {x} {operator} {y} = {result} Ans: {correct_ans}")
+            if operator == "x2":
+                tmp = f"{x} x {x}"
+            if operator == "x3":
+                tmp = f"{x} x {x} x {x}"
+
+            if operator == "x2" or operator == "x3":
+                self.txt_errors.appendPlainText(f"Q-{self.total_questions}: {tmp} = {correct_ans}  You entered: {result}\n-------------------------------------")
+            elif operator == "sqrt":
+                self.txt_errors.appendPlainText(f"Q-{self.total_questions}: √{y} = {correct_ans}  You entered: {result}\n-------------------------------------")
+            else:
+                self.txt_errors.appendPlainText(f"Q-{self.total_questions}: {x} {operator} {y} = {correct_ans}  You entered: {result}\n-------------------------------------")
+
             self.display_image(result_status)
             self.lbl_ans_status.setStyleSheet("background-color : red")
             self.lbl_ans_status.setText("Wrong Answer !!!")
@@ -370,10 +487,13 @@ class MainWindow(QMainWindow):
             self.lbl_disp.clear()
             self.lbl_timer.setText('0')
             self.txt_errors.clear()
+            self.inp_power_x.clear()
+            self.inp_power_y.clear()
+            self.hide_controls(operator=operator)
             self.txt_errors.appendPlainText("Wrong answers\n")
         else:
             self.btn_start.setText("Next Question")
-            self.hide_controls()
+            self.hide_controls(operator=operator)
 
     def reset_ui(self):
         self.btn_start.setText("Start Test")

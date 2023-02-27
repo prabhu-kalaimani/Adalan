@@ -6,20 +6,23 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>831</width>
+    <height>655</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Adalan</string>
+   <string>Adalan 2.0</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
-      <x>4</x>
-      <y>3</y>
-      <width>791</width>
+      <x>5</x>
+      <y>2</y>
+      <width>821</width>
       <height>51</height>
      </rect>
     </property>
@@ -149,17 +152,20 @@
     <widget class="QCheckBox" name="chk_div">
      <property name="geometry">
       <rect>
-       <x>450</x>
-       <y>10</y>
-       <width>82</width>
-       <height>24</height>
+       <x>330</x>
+       <y>12</y>
+       <width>69</width>
+       <height>18</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
        <bold>true</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border :0px solid ;</string>
      </property>
      <property name="text">
       <string>Division</string>
@@ -168,17 +174,20 @@
     <widget class="QCheckBox" name="chk_add">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>4</x>
        <y>10</y>
-       <width>87</width>
-       <height>24</height>
+       <width>73</width>
+       <height>18</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
        <bold>true</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border :0px solid ;</string>
      </property>
      <property name="text">
       <string>Addition</string>
@@ -187,17 +196,20 @@
     <widget class="QCheckBox" name="chk_sub">
      <property name="geometry">
       <rect>
-       <x>150</x>
+       <x>90</x>
        <y>10</y>
-       <width>109</width>
-       <height>24</height>
+       <width>91</width>
+       <height>18</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
        <bold>true</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border :0px solid ;</string>
      </property>
      <property name="text">
       <string>Subtraction</string>
@@ -206,17 +218,20 @@
     <widget class="QCheckBox" name="chk_mul">
      <property name="geometry">
       <rect>
-       <x>290</x>
-       <y>10</y>
-       <width>127</width>
-       <height>24</height>
+       <x>200</x>
+       <y>11</y>
+       <width>105</width>
+       <height>18</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
        <bold>true</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border :0px solid ;</string>
      </property>
      <property name="text">
       <string>Multiplication</string>
@@ -225,8 +240,8 @@
     <widget class="QLabel" name="lbl_timer">
      <property name="geometry">
       <rect>
-       <x>620</x>
-       <y>10</y>
+       <x>680</x>
+       <y>6</y>
        <width>91</width>
        <height>31</height>
       </rect>
@@ -250,9 +265,9 @@
     <widget class="QLabel" name="lbl_timer_2">
      <property name="geometry">
       <rect>
-       <x>710</x>
-       <y>10</y>
-       <width>31</width>
+       <x>770</x>
+       <y>7</y>
+       <width>21</width>
        <height>31</height>
       </rect>
      </property>
@@ -272,14 +287,90 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
+    <widget class="QCheckBox" name="chk_square">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>12</y>
+       <width>62</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border :0px solid ;</string>
+     </property>
+     <property name="text">
+      <string>Square</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="chk_cbrt">
+     <property name="geometry">
+      <rect>
+       <x>500</x>
+       <y>12</y>
+       <width>51</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border :0px solid ;</string>
+     </property>
+     <property name="text">
+      <string>Cube</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="chk_sqrt">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>13</y>
+       <width>91</width>
+       <height>18</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border :0px solid ;</string>
+     </property>
+     <property name="text">
+      <string>SquareRoot</string>
+     </property>
+    </widget>
+    <zorder>frame_2</zorder>
+    <zorder>lbl_timer</zorder>
+    <zorder>lbl_timer_2</zorder>
+    <zorder>chk_add</zorder>
+    <zorder>chk_mul</zorder>
+    <zorder>chk_sub</zorder>
+    <zorder>chk_cbrt</zorder>
+    <zorder>chk_sqrt</zorder>
+    <zorder>chk_square</zorder>
+    <zorder>chk_div</zorder>
    </widget>
    <widget class="QFrame" name="frame_3">
     <property name="geometry">
      <rect>
-      <x>6</x>
-      <y>147</y>
-      <width>790</width>
-      <height>121</height>
+      <x>5</x>
+      <y>141</y>
+      <width>821</width>
+      <height>181</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -291,39 +382,11 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="lbl_operator">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>155</x>
-       <y>20</y>
-       <width>81</width>
-       <height>71</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>16</pointsize>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border:0px;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
     <widget class="QLabel" name="lbl_equal">
      <property name="geometry">
       <rect>
-       <x>400</x>
-       <y>30</y>
+       <x>394</x>
+       <y>89</y>
        <width>29</width>
        <height>52</height>
       </rect>
@@ -335,75 +398,10 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">border:0;</string>
+      <string notr="true">border:0;color:grey;</string>
      </property>
      <property name="text">
       <string>=</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="inp_1">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>30</y>
-       <width>141</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>20</pointsize>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>ArrowCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border:0px;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-     <property name="readOnly">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="inp_2">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>30</y>
-       <width>161</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>20</pointsize>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>ArrowCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border:0px;</string>
-     </property>
-     <property name="text">
-      <string/>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -415,15 +413,16 @@
      </property>
      <property name="geometry">
       <rect>
-       <x>429</x>
-       <y>21</y>
-       <width>221</width>
-       <height>81</height>
+       <x>425</x>
+       <y>93</y>
+       <width>231</width>
+       <height>51</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>16</pointsize>
+       <family>Times New Roman</family>
+       <pointsize>20</pointsize>
        <bold>true</bold>
       </font>
      </property>
@@ -446,15 +445,15 @@
      </property>
      <property name="geometry">
       <rect>
-       <x>660</x>
-       <y>25</y>
-       <width>121</width>
-       <height>61</height>
+       <x>670</x>
+       <y>50</y>
+       <width>131</width>
+       <height>111</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <pointsize>14</pointsize>
        <bold>true</bold>
       </font>
      </property>
@@ -479,8 +478,8 @@ border-bottom-color : blue
      <property name="geometry">
       <rect>
        <x>460</x>
-       <y>0</y>
-       <width>151</width>
+       <y>150</y>
+       <width>161</width>
        <height>21</height>
       </rect>
      </property>
@@ -491,13 +490,268 @@ border-bottom-color : blue
       <string>Enter your answer in the box</string>
      </property>
     </widget>
+    <widget class="QLabel" name="lbl_operator_1">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>384</x>
+       <y>49</y>
+       <width>41</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>26</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border :0px solid ;</string>
+     </property>
+     <property name="text">
+      <string>X</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="inp_1">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>23</x>
+       <y>92</y>
+       <width>161</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>20</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>ArrowCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border :1px solid ;
+color:black;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="inp_2">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>231</x>
+       <y>92</y>
+       <width>161</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>20</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>ArrowCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border :1px solid ;
+background-color: rgba(0, 0, 0, 0);
+color:black</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lbl_operator">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>187</x>
+       <y>92</y>
+       <width>41</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>28</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>ArrowCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border :1px solid ;
+background-color: rgba(0, 0, 0, 0)</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="inp_power_y">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>370</x>
+       <y>70</y>
+       <width>31</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border :1px solid ;
+color:black;</string>
+     </property>
+     <property name="text">
+      <string>3</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="inp_power_x">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>20</y>
+       <width>181</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>28</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border :1px solid ;
+color:black;</string>
+     </property>
+     <property name="text">
+      <string>12</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lbl_inp1">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>425</x>
+       <y>5</y>
+       <width>161</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>20</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>ArrowCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border :1px solid ;
+background-color: rgba(0, 0, 0, 0);
+color:black</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lbl_inp2">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>426</x>
+       <y>48</y>
+       <width>161</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>20</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>ArrowCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border :1px solid ;
+background-color: rgba(0, 0, 0, 0);
+color:black</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
       <x>5</x>
-      <y>55</y>
-      <width>791</width>
+      <y>51</y>
+      <width>821</width>
       <height>91</height>
      </rect>
     </property>
@@ -505,16 +759,19 @@ border-bottom-color : blue
      <string notr="true">border-width: 1;border-style: solid;</string>
     </property>
     <property name="title">
-     <string>Settings</string>
+     <string/>
     </property>
     <widget class="QSlider" name="int_range">
      <property name="geometry">
       <rect>
        <x>28</x>
-       <y>60</y>
+       <y>50</y>
        <width>141</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border :0px solid ;</string>
      </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -530,7 +787,7 @@ border-bottom-color : blue
      <property name="geometry">
       <rect>
        <x>1</x>
-       <y>37</y>
+       <y>27</y>
        <width>31</width>
        <height>20</height>
       </rect>
@@ -552,7 +809,7 @@ border-bottom-color : blue
      <property name="geometry">
       <rect>
        <x>158</x>
-       <y>39</y>
+       <y>29</y>
        <width>61</width>
        <height>16</height>
       </rect>
@@ -573,8 +830,8 @@ border-bottom-color : blue
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>350</x>
-       <y>17</y>
+       <x>270</x>
+       <y>10</y>
        <width>82</width>
        <height>15</height>
       </rect>
@@ -595,7 +852,7 @@ border-bottom-color : blue
      <property name="geometry">
       <rect>
        <x>6</x>
-       <y>23</y>
+       <y>13</y>
        <width>31</width>
        <height>16</height>
       </rect>
@@ -616,7 +873,7 @@ border-bottom-color : blue
      <property name="geometry">
       <rect>
        <x>175</x>
-       <y>23</y>
+       <y>13</y>
        <width>31</width>
        <height>16</height>
       </rect>
@@ -637,7 +894,7 @@ border-bottom-color : blue
      <property name="geometry">
       <rect>
        <x>56</x>
-       <y>23</y>
+       <y>13</y>
        <width>101</width>
        <height>20</height>
       </rect>
@@ -652,11 +909,14 @@ border-bottom-color : blue
     <widget class="QSlider" name="inp_total_question">
      <property name="geometry">
       <rect>
-       <x>330</x>
-       <y>57</y>
+       <x>250</x>
+       <y>45</y>
        <width>141</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border :0px solid ;</string>
      </property>
      <property name="minimum">
       <number>1</number>
@@ -674,8 +934,8 @@ border-bottom-color : blue
      </property>
      <property name="geometry">
       <rect>
-       <x>310</x>
-       <y>57</y>
+       <x>230</x>
+       <y>43</y>
        <width>21</width>
        <height>20</height>
       </rect>
@@ -696,8 +956,8 @@ border-bottom-color : blue
      </property>
      <property name="geometry">
       <rect>
-       <x>470</x>
-       <y>57</y>
+       <x>390</x>
+       <y>43</y>
        <width>31</width>
        <height>20</height>
       </rect>
@@ -718,9 +978,9 @@ border-bottom-color : blue
      </property>
      <property name="geometry">
       <rect>
-       <x>720</x>
-       <y>40</y>
-       <width>70</width>
+       <x>600</x>
+       <y>70</y>
+       <width>71</width>
        <height>20</height>
       </rect>
      </property>
@@ -739,8 +999,8 @@ border-bottom-color : blue
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>670</x>
-       <y>4</y>
+       <x>551</x>
+       <y>6</y>
        <width>40</width>
        <height>18</height>
       </rect>
@@ -760,8 +1020,8 @@ border-bottom-color : blue
     <widget class="QDial" name="dial_delay">
      <property name="geometry">
       <rect>
-       <x>643</x>
-       <y>18</y>
+       <x>528</x>
+       <y>20</y>
        <width>89</width>
        <height>71</height>
       </rect>
@@ -779,7 +1039,7 @@ border-bottom-color : blue
     <widget class="QLabel" name="lbl_ques_cnt">
      <property name="geometry">
       <rect>
-       <x>560</x>
+       <x>455</x>
        <y>40</y>
        <width>41</width>
        <height>31</height>
@@ -807,7 +1067,7 @@ border-bottom-color : blue
     <widget class="QLabel" name="lbl_ques_cnt_2">
      <property name="geometry">
       <rect>
-       <x>540</x>
+       <x>435</x>
        <y>10</y>
        <width>91</width>
        <height>21</height>
@@ -839,7 +1099,7 @@ border-bottom-color : blue
      <property name="geometry">
       <rect>
        <x>13</x>
-       <y>59</y>
+       <y>49</y>
        <width>7</width>
        <height>16</height>
       </rect>
@@ -858,7 +1118,7 @@ border-bottom-color : blue
      <property name="geometry">
       <rect>
        <x>170</x>
-       <y>60</y>
+       <y>50</y>
        <width>21</width>
        <height>16</height>
       </rect>
@@ -870,6 +1130,19 @@ border-bottom-color : blue
       <string>100</string>
      </property>
     </widget>
+    <widget class="QCheckBox" name="chk_vertical">
+     <property name="geometry">
+      <rect>
+       <x>644</x>
+       <y>30</y>
+       <width>171</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Show questions in vertical</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QLabel" name="lbl_passed_cnt">
     <property name="enabled">
@@ -877,8 +1150,8 @@ border-bottom-color : blue
     </property>
     <property name="geometry">
      <rect>
-      <x>380</x>
-      <y>270</y>
+      <x>420</x>
+      <y>336</y>
       <width>61</width>
       <height>31</height>
      </rect>
@@ -899,8 +1172,8 @@ border-bottom-color : blue
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>278</y>
+      <x>338</x>
+      <y>344</y>
       <width>81</width>
       <height>16</height>
      </rect>
@@ -915,8 +1188,8 @@ border-bottom-color : blue
     </property>
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>310</y>
+      <x>430</x>
+      <y>376</y>
       <width>41</width>
       <height>18</height>
      </rect>
@@ -937,8 +1210,8 @@ border-bottom-color : blue
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>309</y>
+      <x>338</x>
+      <y>375</y>
       <width>81</width>
       <height>16</height>
      </rect>
@@ -950,10 +1223,10 @@ border-bottom-color : blue
    <widget class="QPlainTextEdit" name="txt_errors">
     <property name="geometry">
      <rect>
-      <x>1</x>
-      <y>274</y>
-      <width>251</width>
-      <height>281</height>
+      <x>5</x>
+      <y>321</y>
+      <width>291</width>
+      <height>291</height>
      </rect>
     </property>
     <property name="font">
@@ -962,67 +1235,43 @@ border-bottom-color : blue
       <bold>false</bold>
      </font>
     </property>
-   </widget>
-   <widget class="Line" name="line">
-    <property name="geometry">
-     <rect>
-      <x>243</x>
-      <y>270</y>
-      <width>20</width>
-      <height>281</height>
-     </rect>
+    <property name="styleSheet">
+     <string notr="true">border :1px solid ;</string>
     </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
+    <property name="sizeAdjustPolicy">
+     <enum>QAbstractScrollArea::AdjustToContents</enum>
     </property>
-   </widget>
-   <widget class="Line" name="line_3">
-    <property name="geometry">
-     <rect>
-      <x>7</x>
-      <y>547</y>
-      <width>790</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
+    <property name="plainText">
+     <string/>
     </property>
    </widget>
    <widget class="QLabel" name="lbl_disp">
     <property name="geometry">
      <rect>
-      <x>496</x>
-      <y>268</y>
-      <width>300</width>
-      <height>290</height>
+      <x>525</x>
+      <y>321</y>
+      <width>301</width>
+      <height>291</height>
      </rect>
     </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>16777215</height>
+     </size>
+    </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">border :1px solid ;</string>
     </property>
     <property name="text">
      <string/>
     </property>
    </widget>
-   <widget class="Line" name="line_2">
-    <property name="geometry">
-     <rect>
-      <x>480</x>
-      <y>270</y>
-      <width>30</width>
-      <height>281</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
    <widget class="QPushButton" name="brn_show_result">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>510</y>
+      <x>340</x>
+      <y>566</y>
       <width>141</width>
       <height>41</height>
      </rect>
@@ -1034,9 +1283,9 @@ border-bottom-color : blue
    <widget class="QLabel" name="lbl_completion_status">
     <property name="geometry">
      <rect>
-      <x>258</x>
-      <y>450</y>
-      <width>231</width>
+      <x>300</x>
+      <y>506</y>
+      <width>221</width>
       <height>51</height>
      </rect>
     </property>
@@ -1055,9 +1304,9 @@ border-bottom-color : blue
    <widget class="QLabel" name="lbl_ans_status">
     <property name="geometry">
      <rect>
-      <x>262</x>
-      <y>360</y>
-      <width>221</width>
+      <x>310</x>
+      <y>416</y>
+      <width>191</width>
       <height>61</height>
      </rect>
     </property>
@@ -1079,7 +1328,7 @@ border-bottom-color : blue
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>831</width>
      <height>22</height>
     </rect>
    </property>

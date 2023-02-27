@@ -155,7 +155,7 @@
        <x>330</x>
        <y>12</y>
        <width>69</width>
-       <height>18</height>
+       <height>21</height>
       </rect>
      </property>
      <property name="font">
@@ -447,7 +447,7 @@
       <rect>
        <x>670</x>
        <y>50</y>
-       <width>131</width>
+       <width>141</width>
        <height>111</height>
       </rect>
      </property>
@@ -496,7 +496,7 @@ border-bottom-color : blue
      </property>
      <property name="geometry">
       <rect>
-       <x>384</x>
+       <x>389</x>
        <y>49</y>
        <width>41</width>
        <height>31</height>
@@ -510,10 +510,12 @@ border-bottom-color : blue
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">border :0px solid ;</string>
+      <string notr="true">border :0px solid ;
+background-color: rgba(0, 0, 0, 0);
+color:black</string>
      </property>
      <property name="text">
-      <string>X</string>
+      <string/>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -542,8 +544,9 @@ border-bottom-color : blue
       <cursorShape>ArrowCursor</cursorShape>
      </property>
      <property name="styleSheet">
-      <string notr="true">border :1px solid ;
-color:black;</string>
+      <string notr="true">border :0px solid ;
+background-color: rgba(0, 0, 0, 0);
+color:black</string>
      </property>
      <property name="text">
       <string/>
@@ -575,7 +578,7 @@ color:black;</string>
       <cursorShape>ArrowCursor</cursorShape>
      </property>
      <property name="styleSheet">
-      <string notr="true">border :1px solid ;
+      <string notr="true">border :0px solid ;
 background-color: rgba(0, 0, 0, 0);
 color:black</string>
      </property>
@@ -609,8 +612,9 @@ color:black</string>
       <cursorShape>ArrowCursor</cursorShape>
      </property>
      <property name="styleSheet">
-      <string notr="true">border :1px solid ;
-background-color: rgba(0, 0, 0, 0)</string>
+      <string notr="true">border :0px solid ;
+background-color: rgba(0, 0, 0, 0);
+color:black</string>
      </property>
      <property name="text">
       <string/>
@@ -619,71 +623,13 @@ background-color: rgba(0, 0, 0, 0)</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="inp_power_y">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>370</x>
-       <y>70</y>
-       <width>31</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>12</pointsize>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border :1px solid ;
-color:black;</string>
-     </property>
-     <property name="text">
-      <string>3</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="inp_power_x">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>20</y>
-       <width>181</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>28</pointsize>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border :1px solid ;
-color:black;</string>
-     </property>
-     <property name="text">
-      <string>12</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
     <widget class="QLineEdit" name="lbl_inp1">
      <property name="enabled">
       <bool>false</bool>
      </property>
      <property name="geometry">
       <rect>
-       <x>425</x>
+       <x>430</x>
        <y>5</y>
        <width>161</width>
        <height>41</height>
@@ -700,7 +646,7 @@ color:black;</string>
       <cursorShape>ArrowCursor</cursorShape>
      </property>
      <property name="styleSheet">
-      <string notr="true">border :1px solid ;
+      <string notr="true">border :0px solid ;
 background-color: rgba(0, 0, 0, 0);
 color:black</string>
      </property>
@@ -708,7 +654,7 @@ color:black</string>
       <string/>
      </property>
      <property name="alignment">
-      <set>Qt::AlignCenter</set>
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
     </widget>
     <widget class="QLineEdit" name="lbl_inp2">
@@ -717,7 +663,7 @@ color:black</string>
      </property>
      <property name="geometry">
       <rect>
-       <x>426</x>
+       <x>431</x>
        <y>48</y>
        <width>161</width>
        <height>41</height>
@@ -734,7 +680,109 @@ color:black</string>
       <cursorShape>ArrowCursor</cursorShape>
      </property>
      <property name="styleSheet">
-      <string notr="true">border :1px solid ;
+      <string notr="true">border :0px solid ;
+background-color: rgba(0, 0, 0, 0);
+color:black</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="inp_power_y">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>80</y>
+       <width>41</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>20</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>ArrowCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border :0px solid ;
+background-color: rgba(0, 0, 0, 0);
+color:black</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="inp_power_y1">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>460</x>
+       <y>31</y>
+       <width>41</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>20</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>ArrowCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border :0px solid ;
+background-color: rgba(0, 0, 0, 0);
+color:black</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="inp_power_y1_2">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>520</x>
+       <y>40</y>
+       <width>41</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Times New Roman</family>
+       <pointsize>20</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>ArrowCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border :0px solid ;
 background-color: rgba(0, 0, 0, 0);
 color:black</string>
      </property>
@@ -1140,7 +1188,7 @@ color:black</string>
       </rect>
      </property>
      <property name="text">
-      <string>Show questions in vertical</string>
+      <string>Show questions vertical</string>
      </property>
     </widget>
    </widget>

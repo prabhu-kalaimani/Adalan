@@ -48,6 +48,7 @@ class MainWindow(QMainWindow):
         self.lbl_inp1.hide()
         self.lbl_inp2.hide()
         self.lbl_operator_1.hide()
+        self.inp_power_y1.hide()
 
         # Icon
         self.setWindowIcon(QIcon('adalan_icon.png'))
@@ -73,10 +74,9 @@ class MainWindow(QMainWindow):
         self.chk_sqrt.stateChanged.connect(lambda : self.op_state(self.chk_sqrt))
 
         # Vertical display button
-        self.chk_vertical.stateChanged.connect(lambda : self.vertical_change(self.chk_vertical))
+        # self.chk_vertical.stateChanged.connect(lambda : self.vertical_change(self.chk_vertical))
 
         # hide inputs
-        self.inp_power_x.hide()
         self.inp_power_y.hide()
         self.hide_controls()
         self.brn_show_result.hide()
@@ -118,6 +118,7 @@ class MainWindow(QMainWindow):
         self.inp_1.textChanged.connect(self.lbl_inp1.setText)
         self.inp_2.textChanged.connect(self.lbl_inp2.setText)
         self.lbl_operator.textChanged.connect(self.lbl_operator_1.setText)
+        self.inp_power_y.textChanged.connect(self.inp_power_y1.setText)
 
         # Default options for ui
         self.disable_user_input()  # disable user inputs
@@ -197,25 +198,11 @@ class MainWindow(QMainWindow):
         wait_time = self.dial_delay.value()
         self.lbl_delay.setText(str( wait_time) + " seconds")
 
-    def vertical_change(self, chkbox):
-        if chkbox.isChecked():
-            self.vertical_display = True
-            self.lbl_inp1.show()
-            self.lbl_inp2.show()
-            self.lbl_operator_1.show()
-            # hide
-            self.inp_1.hide()
-            self.inp_2.hide()
-            self.lbl_operator.hide()
-        else:
-            self.vertical_display = False
-            self.lbl_inp1.hide()
-            self.lbl_inp2.hide()
-            self.lbl_operator_1.hide()
-            # show
-            self.inp_1.show()
-            self.inp_2.show()
-            self.lbl_operator.show()
+    # def vertical_change(self, chkbox):
+    #     if chkbox.isChecked():
+    #         self.vertical_display = True
+    #     else:
+    #         self.vertical_display = False
 
     def op_state(self, chkbox):
         """
@@ -259,43 +246,84 @@ class MainWindow(QMainWindow):
         random_num = random.randint(start, end)
         return random_num
 
-    def show_controls(self, operator=None):
+    def show_controls(self, operator, vertical_control):
         """
         Displays controls
         """
-        if operator == "x2" or operator == "x3":
-            self.inp_power_x.show()
-            self.inp_power_y.show()
-        elif operator == "sqrt":
-            self.inp_power_x.show()
-        elif self.vertical_display == False:
-            self.inp_1.show()
-            self.inp_2.show()
-            self.lbl_operator.show()
+        if vertical_control:
+            print("Vertical ui is on")
+            self.inp_1.hide()
+            self.inp_2.hide()
+            self.inp_power_y.hide()
+            self.lbl_operator.hide()
 
-        # Generic control to show
-        self.lbl_equal.show()
+            if operator == "x2" or operator == "x3":
+                self.lbl_inp1.hide()
+                self.lbl_operator_1.hide()
+                self.lbl_inp2.show()
+                self.inp_power_y1.show()
+            elif operator == "sqrt":
+                self.lbl_operator.hide()
+                self.lbl_inp1.hide()
+                self.lbl_inp1.hide()
+                self.lbl_operator_1.hide()
+                self.inp_power_y.hide()
+                self.lbl_inp2.show()
+                self.inp_power_y1.hide()
+            else:
+                self.lbl_inp1.show()
+                self.lbl_operator_1.show()
+                self.lbl_inp2.show()
+                self.inp_power_y1.hide()
+        else:
+            print("Vertical ui is off")
+            if operator == "x2" or operator == "x3":
+                self.inp_1.hide()
+                self.lbl_operator.hide()
+                self.inp_2.show()
+                self.inp_power_y.show()
+                self.lbl_operator_1.hide()
+                self.inp_power_y1.hide()
+                self.lbl_inp1.hide()
+                self.lbl_inp2.hide()
+            elif operator == "sqrt":
+                self.inp_1.hide()
+                self.lbl_operator.hide()
+                self.inp_2.show()
+                self.inp_power_y.hide()
+                self.lbl_operator_1.hide()
+                self.inp_power_y1.hide()
+                self.lbl_inp1.hide()
+                self.lbl_inp2.hide()
+            else:
+                self.inp_1.show()
+                self.inp_2.show()
+                self.lbl_operator.show()
+                self.inp_power_y.hide()
+                self.lbl_inp1.hide()
+                self.lbl_inp2.hide()
+                self.lbl_operator_1.hide()
+
+        # Default ui's
         self.inp_result.show()
-        self.lbl_ans_hint.show()
+        self.lbl_equal.show()
 
     def hide_controls(self, operator=None):
         """
         Hides controls
         """
-        if operator == "x2" or operator == "x3":
-            self.inp_power_x.hide()
-            self.inp_power_y.hide()
-        elif operator == "sqrt":
-            self.inp_power_x.hide()
-        else:
-            self.inp_1.hide()
-            self.inp_2.hide()
-            self.lbl_operator.hide()
-
-        # Generic control to hide
-        self.lbl_equal.hide()
+        print("Vertical ui is on")
+        self.inp_1.hide()
+        self.inp_2.hide()
+        self.lbl_operator.hide()
+        self.lbl_inp1.hide()
+        self.lbl_inp2.hide()
+        self.lbl_operator_1.hide()
+        # Default ui's
         self.inp_result.hide()
-        self.lbl_ans_hint.hide()
+        self.lbl_equal.hide()
+        self.inp_power_y.hide()
+        self.inp_power_y1.hide()
 
     def disable_user_input(self):
         self.btn_start.setEnabled(True)
@@ -320,8 +348,9 @@ class MainWindow(QMainWindow):
             QMessageBox.critical(self, "No operator is chosen !!!", "Chose at least one operator")
         else:
             self.lbl_ans_status.hide()
-            self.chk_vertical.setEnabled(False)
             self.lock_ui()
+            # local vertical display
+            self.chk_vertical.setEnabled(False)
             # self.show_controls()
             self.timer.start(1000)
             self.stop_image()
@@ -337,7 +366,7 @@ class MainWindow(QMainWindow):
             operator = self.operator_dict[random.choice(self.operator_list)]
 
             # Based on the operator show and hide controls
-            self.show_controls(operator=operator)
+            self.show_controls(operator=operator, vertical_control=self.chk_vertical.isChecked())
 
             # Handle divide by division
             if operator == "/":
@@ -354,28 +383,29 @@ class MainWindow(QMainWindow):
 
             if operator == "x2":
                 print("Executing square")
-                self.lbl_operator.setText(operator)
-                self.inp_power_x.setText(str(x))
+                self.inp_1.setText(str(x))
+                self.inp_2.setText(str(y))
+                self.lbl_operator.setText("x2")
                 self.inp_power_y.setText("2")
-                # # Disable the vertical view
-                # if self.chk_vertical.isChecked():
-            if operator == "x3":
-                self.lbl_operator.setText(operator)
+            elif operator == "x3":
                 print("Executing cube")
-                self.inp_power_x.setText(str(x))
+                self.inp_1.setText(str(x))
+                self.inp_2.setText(str(y))
+                self.lbl_operator.setText("x3")
                 self.inp_power_y.setText("3")
-            if operator == "sqrt":
-                self.lbl_operator.setText(operator)
-                self.inp_power_x.setText(f"√{x}")
+            elif operator == "sqrt":
+                self.lbl_operator.setText("sqrt")
+                self.inp_1.setText(str(x))
+                self.inp_2.setText(f"√{x}")
                 self.inp_power_y.setText(str(x))
             else:
                 self.inp_1.setText(str(x))
                 self.lbl_operator.setText(operator)
                 self.inp_2.setText(str(y))
 
-
     def validate_result(self):
         operator = self.lbl_operator.text()
+
         if self.inp_result.text() == "":
             result = 0
         else:
@@ -397,8 +427,8 @@ class MainWindow(QMainWindow):
 
 
         if operator == "x2" or operator == "x3":
-            x = int(self.inp_power_x.text())
-            y = int(self.inp_power_y.text())
+            x = int(self.inp_1.text())
+            y = int(self.inp_2.text())
         elif operator == "sqrt":
             x = int(self.inp_power_y.text())
             y = int(self.inp_power_y.text())
@@ -428,18 +458,14 @@ class MainWindow(QMainWindow):
             correct_ans = round(x / y)
             result_status = (result == correct_ans)
         elif operator == "x2":
-            correct_ans = x * x
+            correct_ans = y * y
             result_status = (result == correct_ans)
         elif operator == "x3":
-            correct_ans = x * x * x
+            correct_ans = y * y * y
             result_status = (result == correct_ans)
         elif operator == "sqrt":
-            correct_ans = round(math.sqrt(y), 2)
+            correct_ans = round(math.sqrt(x), 2)
             result_status = (result == correct_ans)
-
-
-        # Enable the vertical selection
-        self.chk_vertical.setEnabled(True)
 
         # print(f"{result_status} {x} {operator} {y} = {result}")
         if result_status:
@@ -450,14 +476,14 @@ class MainWindow(QMainWindow):
         else:
             self.total_wrong += 1
             if operator == "x2":
-                tmp = f"{x} x {x}"
+                tmp = f"{y} x {y}"
             if operator == "x3":
-                tmp = f"{x} x {x} x {x}"
+                tmp = f"{y} x {y} x {y}"
 
             if operator == "x2" or operator == "x3":
                 self.txt_errors.appendPlainText(f"Q-{self.total_questions}: {tmp} = {correct_ans}  You entered: {result}\n-------------------------------------")
             elif operator == "sqrt":
-                self.txt_errors.appendPlainText(f"Q-{self.total_questions}: √{y} = {correct_ans}  You entered: {result}\n-------------------------------------")
+                self.txt_errors.appendPlainText(f"Q-{self.total_questions}: √{x} = {correct_ans}  You entered: {result}\n-------------------------------------")
             else:
                 self.txt_errors.appendPlainText(f"Q-{self.total_questions}: {x} {operator} {y} = {correct_ans}  You entered: {result}\n-------------------------------------")
 
@@ -487,13 +513,14 @@ class MainWindow(QMainWindow):
             self.lbl_disp.clear()
             self.lbl_timer.setText('0')
             self.txt_errors.clear()
-            self.inp_power_x.clear()
             self.inp_power_y.clear()
             self.hide_controls(operator=operator)
             self.txt_errors.appendPlainText("Wrong answers\n")
         else:
             self.btn_start.setText("Next Question")
             self.hide_controls(operator=operator)
+        # local vertical display
+        self.chk_vertical.setEnabled(True)
 
     def reset_ui(self):
         self.btn_start.setText("Start Test")

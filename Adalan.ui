@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>831</width>
-    <height>655</height>
+    <width>910</width>
+    <height>664</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,7 +22,7 @@
      <rect>
       <x>5</x>
       <y>2</y>
-      <width>821</width>
+      <width>901</width>
       <height>51</height>
      </rect>
     </property>
@@ -237,56 +237,6 @@
       <string>Multiplication</string>
      </property>
     </widget>
-    <widget class="QLabel" name="lbl_timer">
-     <property name="geometry">
-      <rect>
-       <x>680</x>
-       <y>6</y>
-       <width>91</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>20</pointsize>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border:0px</string>
-     </property>
-     <property name="text">
-      <string>0 </string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="lbl_timer_2">
-     <property name="geometry">
-      <rect>
-       <x>770</x>
-       <y>7</y>
-       <width>21</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>20</pointsize>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border:0px</string>
-     </property>
-     <property name="text">
-      <string>s</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
     <widget class="QCheckBox" name="chk_square">
      <property name="geometry">
       <rect>
@@ -353,9 +303,31 @@
       <string>SquareRoot</string>
      </property>
     </widget>
+    <widget class="QLabel" name="lbl_completion_status">
+     <property name="geometry">
+      <rect>
+       <x>690</x>
+       <y>0</y>
+       <width>211</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border :0px solid ;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
     <zorder>frame_2</zorder>
-    <zorder>lbl_timer</zorder>
-    <zorder>lbl_timer_2</zorder>
     <zorder>chk_add</zorder>
     <zorder>chk_mul</zorder>
     <zorder>chk_sub</zorder>
@@ -363,13 +335,14 @@
     <zorder>chk_sqrt</zorder>
     <zorder>chk_square</zorder>
     <zorder>chk_div</zorder>
+    <zorder>lbl_completion_status</zorder>
    </widget>
    <widget class="QFrame" name="frame_3">
     <property name="geometry">
      <rect>
       <x>5</x>
       <y>141</y>
-      <width>821</width>
+      <width>901</width>
       <height>181</height>
      </rect>
     </property>
@@ -446,9 +419,9 @@
      <property name="geometry">
       <rect>
        <x>670</x>
-       <y>50</y>
-       <width>141</width>
-       <height>111</height>
+       <y>30</y>
+       <width>201</width>
+       <height>131</height>
       </rect>
      </property>
      <property name="font">
@@ -477,8 +450,8 @@ border-bottom-color : blue
     <widget class="QLabel" name="lbl_ans_hint">
      <property name="geometry">
       <rect>
-       <x>460</x>
-       <y>150</y>
+       <x>467</x>
+       <y>140</y>
        <width>161</width>
        <height>21</height>
       </rect>
@@ -799,7 +772,7 @@ color:black</string>
      <rect>
       <x>5</x>
       <y>51</y>
-      <width>821</width>
+      <width>901</width>
       <height>91</height>
      </rect>
     </property>
@@ -878,8 +851,8 @@ color:black</string>
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>270</x>
-       <y>10</y>
+       <x>313</x>
+       <y>14</y>
        <width>82</width>
        <height>15</height>
       </rect>
@@ -957,10 +930,10 @@ color:black</string>
     <widget class="QSlider" name="inp_total_question">
      <property name="geometry">
       <rect>
-       <x>250</x>
+       <x>270</x>
        <y>45</y>
-       <width>141</width>
-       <height>16</height>
+       <width>151</width>
+       <height>20</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -982,7 +955,7 @@ color:black</string>
      </property>
      <property name="geometry">
       <rect>
-       <x>230</x>
+       <x>250</x>
        <y>43</y>
        <width>21</width>
        <height>20</height>
@@ -1004,7 +977,7 @@ color:black</string>
      </property>
      <property name="geometry">
       <rect>
-       <x>390</x>
+       <x>425</x>
        <y>43</y>
        <width>31</width>
        <height>20</height>
@@ -1026,7 +999,7 @@ color:black</string>
      </property>
      <property name="geometry">
       <rect>
-       <x>600</x>
+       <x>665</x>
        <y>70</y>
        <width>71</width>
        <height>20</height>
@@ -1047,7 +1020,7 @@ color:black</string>
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>551</x>
+       <x>616</x>
        <y>6</y>
        <width>40</width>
        <height>18</height>
@@ -1068,7 +1041,7 @@ color:black</string>
     <widget class="QDial" name="dial_delay">
      <property name="geometry">
       <rect>
-       <x>528</x>
+       <x>593</x>
        <y>20</y>
        <width>89</width>
        <height>71</height>
@@ -1087,7 +1060,7 @@ color:black</string>
     <widget class="QLabel" name="lbl_ques_cnt">
      <property name="geometry">
       <rect>
-       <x>455</x>
+       <x>500</x>
        <y>40</y>
        <width>41</width>
        <height>31</height>
@@ -1115,7 +1088,7 @@ color:black</string>
     <widget class="QLabel" name="lbl_ques_cnt_2">
      <property name="geometry">
       <rect>
-       <x>435</x>
+       <x>480</x>
        <y>10</y>
        <width>91</width>
        <height>21</height>
@@ -1181,7 +1154,7 @@ color:black</string>
     <widget class="QCheckBox" name="chk_vertical">
      <property name="geometry">
       <rect>
-       <x>644</x>
+       <x>719</x>
        <y>30</y>
        <width>171</width>
        <height>20</height>
@@ -1191,82 +1164,6 @@ color:black</string>
       <string>Show questions vertical</string>
      </property>
     </widget>
-   </widget>
-   <widget class="QLabel" name="lbl_passed_cnt">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>420</x>
-      <y>336</y>
-      <width>61</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>10</pointsize>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>0</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_6">
-    <property name="geometry">
-     <rect>
-      <x>338</x>
-      <y>344</y>
-      <width>81</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Passed Count</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lbl_failed_cnt">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>430</x>
-      <y>376</y>
-      <width>41</width>
-      <height>18</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>10</pointsize>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>0</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_7">
-    <property name="geometry">
-     <rect>
-      <x>338</x>
-      <y>375</y>
-      <width>81</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Failed Count</string>
-    </property>
    </widget>
    <widget class="QPlainTextEdit" name="txt_errors">
     <property name="geometry">
@@ -1296,7 +1193,29 @@ color:black</string>
    <widget class="QLabel" name="lbl_disp">
     <property name="geometry">
      <rect>
-      <x>525</x>
+      <x>596</x>
+      <y>321</y>
+      <width>310</width>
+      <height>291</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border :1px solid ;</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_score_board">
+    <property name="geometry">
+     <rect>
+      <x>295</x>
       <y>321</y>
       <width>301</width>
       <height>291</height>
@@ -1315,35 +1234,113 @@ color:black</string>
      <string/>
     </property>
    </widget>
-   <widget class="QPushButton" name="brn_show_result">
+   <widget class="QLabel" name="lbl_passed_cnt">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>566</y>
-      <width>141</width>
-      <height>41</height>
+      <x>344</x>
+      <y>413</y>
+      <width>51</width>
+      <height>21</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>12</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border :0px solid ;
+color: green;</string>
+    </property>
     <property name="text">
-     <string>Show Results</string>
+     <string>0</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="lbl_completion_status">
+   <widget class="QLabel" name="lbl_failed_cnt">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>506</y>
-      <width>221</width>
-      <height>51</height>
+      <x>500</x>
+      <y>411</y>
+      <width>51</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>12</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border :0px solid ;
+color: red;</string>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_timer">
+    <property name="geometry">
+     <rect>
+      <x>419</x>
+      <y>403</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:0px;
+color:white</string>
+    </property>
+    <property name="text">
+     <string>0 </string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_timer_2">
+    <property name="geometry">
+     <rect>
+      <x>444</x>
+      <y>402</y>
+      <width>21</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <pointsize>12</pointsize>
+      <bold>true</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border:0px;
+color:white</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>s</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -1352,9 +1349,9 @@ color:black</string>
    <widget class="QLabel" name="lbl_ans_status">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>416</y>
-      <width>191</width>
+      <x>336</x>
+      <y>501</y>
+      <width>220</width>
       <height>61</height>
      </rect>
     </property>
@@ -1362,6 +1359,9 @@ color:black</string>
      <font>
       <pointsize>14</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border :0px solid ;</string>
     </property>
     <property name="text">
      <string/>
@@ -1376,7 +1376,7 @@ color:black</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>831</width>
+     <width>910</width>
      <height>22</height>
     </rect>
    </property>

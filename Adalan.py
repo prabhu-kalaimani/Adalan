@@ -5,7 +5,7 @@
 #
 ##########################################################################
 
-from PyQt6.QtWidgets import QApplication, QMainWindow, QDialog, QMessageBox
+from PyQt6.QtWidgets import QApplication, QMainWindow, QDialog, QMessageBox, QStatusBar
 from PyQt6.QtGui import QIntValidator, QDoubleValidator, QMovie, QIcon, QPixmap
 from PyQt6.uic import loadUi
 from PyQt6.QtCore import QTimer
@@ -53,6 +53,15 @@ class MainWindow(QMainWindow):
         # Icon
         self.setWindowIcon(QIcon('adalan_icon.png'))
 
+        self.lbl_score_board.setStyleSheet("border-image : url(gifs/scoreboard.jpg);background-position: center;")
+
+
+        # Status barlbl_score_board
+        self.statusBar = QStatusBar()
+        self.setStatusBar(self.statusBar)
+        msg = f"Welcome to Adalan {self.adalan_version}. Press Start Test button to start the test. You can use the enter keyboard for entering answers and moving to the next question..."
+        self.status_message(msg)
+
         # Initialization the UI components
         self.chk_add.setChecked(True)
         self.operator_list.append(self.chk_add.text())
@@ -79,7 +88,6 @@ class MainWindow(QMainWindow):
         # hide inputs
         self.inp_power_y.hide()
         self.hide_controls()
-        self.brn_show_result.hide()
 
         # Input number validation
         self.inp_result.setValidator(QDoubleValidator(-1000000000, 1000000000, 2))
@@ -122,7 +130,9 @@ class MainWindow(QMainWindow):
         self.disable_user_input()  # disable user inputs
         self.update_gifs()
 
-
+    def status_message(self, msg):
+        self.statusBar.clearMessage()
+        self.statusBar.showMessage(msg)
 
     def menu_requirements(self):
         """
@@ -479,11 +489,11 @@ class MainWindow(QMainWindow):
                 tmp = f"{y} x {y} x {y}"
 
             if operator == "x2" or operator == "x3":
-                self.txt_errors.appendPlainText(f"Q-{self.total_questions}: {tmp} = {correct_ans}  You entered: {result}\n-------------------------------------")
+                self.txt_errors.appendPlainText(f"(Q-{self.total_questions}) {tmp} = {correct_ans}  You entered: {result}\n-------------------------------------")
             elif operator == "sqrt":
-                self.txt_errors.appendPlainText(f"Q-{self.total_questions}: √{x} = {correct_ans}  You entered: {result}\n-------------------------------------")
+                self.txt_errors.appendPlainText(f"(Q-{self.total_questions}) √{x} = {correct_ans}  You entered: {result}\n-------------------------------------")
             else:
-                self.txt_errors.appendPlainText(f"Q-{self.total_questions}: {x} {operator} {y} = {correct_ans}  You entered: {result}\n-------------------------------------")
+                self.txt_errors.appendPlainText(f"(Q-{self.total_questions}) {x} {operator} {y} = {correct_ans}  You entered: {result}\n-------------------------------------")
 
             self.display_image(result_status)
             self.lbl_ans_status.setStyleSheet("background-color : red")

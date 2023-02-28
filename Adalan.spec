@@ -8,7 +8,7 @@ a = Analysis(
     ['Adalan.py'],
     pathex=[],
     binaries=[],
-    datas=[('*.ui', '.'), ('gifs/', 'gifs/'), ('adalan_icon.png', '.')],
+    datas=[('*.ui', '.'), ('adalan_icon.png', '.'), ('adalan_icon.ico', '.'), ('gifs/', 'gifs/')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

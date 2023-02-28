@@ -14,8 +14,7 @@ import random
 import os
 import math
 import glob
-# pyinstaller --windowed --icon=adalan_icon.ico --add-data="*.ui;."  --add-data="adalan_icon.png;." --add-data="adalan_icon.ico;." --add-data="gif
-# s/;gifs/"  Adalan.py
+# pyinstaller --windowed --icon=adalan_icon.ico --add-data="*.ui;."  --add-data="adalan_icon.png;." --add-data="adalan_icon.ico;." --add-data="gifs/;gifs/"  Adalan.py
 
 
 class MainWindow(QMainWindow):
